@@ -27,7 +27,6 @@ import SwiftUI
 //        }
 //    }
 //}
-import SwiftUI
 
 struct ContentView: View {
     var body: some View {
@@ -48,14 +47,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("Chapter 4", systemImage: "4.circle")
                 }
-          
         }
     }
 }
-
-
-
-
-
-
 

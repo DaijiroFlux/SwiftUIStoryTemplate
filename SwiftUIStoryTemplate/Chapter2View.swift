@@ -1,32 +1,33 @@
 import SwiftUI
 
 struct Chapter2View: View {
+    var personName = ""
     var body: some View {
         VStack {
             Text("Chapter 2")
-                .font(.title)
+                .font(.largeTitle)
                 .padding()
-            
-            Image(systemName: "2.circle.fill")
+
+            Image(systemName: "book.fill")
                 .resizable()
-                .aspectRatio(contentMode: .fit)
+                .scaledToFit()
                 .frame(width: 100, height: 100)
                 .padding()
-            
-            Text("One day, Sir Arthur received a mysterious message that led him on a quest to find a hidden treasure.")
+
+            Text("In the next chapter...")
                 .padding()
-            
+
             NavigationLink(destination: Chapter3View()) {
-                Text("Next Chapter")
-                    .font(.headline)
-                    .foregroundColor(.blue)
+                Text("Next")
                     .padding()
+                    .foregroundColor(.white)
+                    .background(Color.blue)
+                    .cornerRadius(8)
             }
             .padding()
         }
     }
 }
-
 
 #Preview {
     Chapter2View()

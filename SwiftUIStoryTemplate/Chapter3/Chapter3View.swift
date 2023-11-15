@@ -4,23 +4,24 @@ struct Chapter3View: View {
     var body: some View {
         VStack {
             Text("Chapter 3")
-                .font(.title)
+                .font(.largeTitle)
                 .padding()
-            
-            Image(systemName: "3.circle.fill")
+
+            Image(systemName: "book.circle")
                 .resizable()
-                .aspectRatio(contentMode: .fit)
+                .scaledToFit()
                 .frame(width: 100, height: 100)
                 .padding()
-            
-            Text("On his journey, Sir Arthur encountered a wise old wizard who gave him a magical sword.")
+
+            Text("The story continues...")
                 .padding()
-            
+
             NavigationLink(destination: Chapter4View()) {
-                Text("Next Chapter")
-                    .font(.headline)
-                    .foregroundColor(.blue)
+                Text("Next")
                     .padding()
+                    .foregroundColor(.white)
+                    .background(Color.blue)
+                    .cornerRadius(8)
             }
             .padding()
         }
