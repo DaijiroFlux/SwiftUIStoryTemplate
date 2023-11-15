@@ -1,15 +1,16 @@
 {
   "images" : [
     {
-      "filename" : "GettyImages-1178122959.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "GettyImages-1178122959 1.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "GettyImages-1178122959 2.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }

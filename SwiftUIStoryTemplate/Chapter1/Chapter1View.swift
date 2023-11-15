@@ -3,7 +3,7 @@ import SwiftUI
 struct Chapter1View: View {
     @State private var userAnswer: String = ""
 
-    let images = ["image1", "image2", "image3"] 
+    let images = ["Image1", "Image2", "Image3"] 
     @State var activeImageIndex = 0
     
     let imageSwitchTimer = Timer.publish(every: 5, on: .main, in: .common)
