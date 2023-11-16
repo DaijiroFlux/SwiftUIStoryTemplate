@@ -1,13 +1,21 @@
 import SwiftUI
 import AVFoundation
 
+
+
 struct Chapter1View: View {
+
+   
+    
+    @State private var userAnswer: String = ""
+
     @State private var userCan: String = ""
     @State private var activeImageIndex = 0
     @State private var isSpeaking = false // Track speech status
     let images = ["Chap1image1", "Chap1image2", "Chap1image3", "Chap1image4"]
     let imageSwitchTimeInterval = 5.0
     var speechSynthesizer = AVSpeechSynthesizer()
+
 
     var body: some View {
         ScrollView {
@@ -45,6 +53,7 @@ struct Chapter1View: View {
                 }
                 .padding()
 
+
                 Button(action: {
                     self.startOverSpeech()
                 }) {
@@ -63,6 +72,7 @@ struct Chapter1View: View {
             .padding()
         }
     }
+
 
     private func startSpeech() {
         if !isSpeaking {
