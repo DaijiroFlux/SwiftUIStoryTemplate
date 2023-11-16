@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15E3E5B62B06BAD2002FC828 /* CartoonBlocks.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15E3E5B52B06BAD2002FC828 /* CartoonBlocks.ttf */; };
 		5DE6F6702AFADF05004ABB4F /* SwiftUIStoryTemplateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE6F66F2AFADF05004ABB4F /* SwiftUIStoryTemplateApp.swift */; };
 		5DE6F6722AFADF05004ABB4F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE6F6712AFADF05004ABB4F /* ContentView.swift */; };
 		5DE6F6742AFADF08004ABB4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DE6F6732AFADF08004ABB4F /* Assets.xcassets */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15E3E5B42B06B9C2002FC828 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		15E3E5B52B06BAD2002FC828 /* CartoonBlocks.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CartoonBlocks.ttf; sourceTree = "<group>"; };
 		5DE6F66C2AFADF05004ABB4F /* SwiftUIStoryTemplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIStoryTemplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE6F66F2AFADF05004ABB4F /* SwiftUIStoryTemplateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIStoryTemplateApp.swift; sourceTree = "<group>"; };
 		5DE6F6712AFADF05004ABB4F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +62,8 @@
 		5DE6F66E2AFADF05004ABB4F /* SwiftUIStoryTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				15E3E5B52B06BAD2002FC828 /* CartoonBlocks.ttf */,
+				15E3E5B42B06B9C2002FC828 /* Info.plist */,
 				5DE6F66F2AFADF05004ABB4F /* SwiftUIStoryTemplateApp.swift */,
 				5DE6F6712AFADF05004ABB4F /* ContentView.swift */,
 				5DE6F6872AFAE47A004ABB4F /* Chapter1 */,
@@ -170,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DE6F6772AFADF08004ABB4F /* Preview Assets.xcassets in Resources */,
+				15E3E5B62B06BAD2002FC828 /* CartoonBlocks.ttf in Resources */,
 				5DE6F6742AFADF08004ABB4F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,6 +329,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftUIStoryTemplate/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -352,6 +359,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftUIStoryTemplate/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
