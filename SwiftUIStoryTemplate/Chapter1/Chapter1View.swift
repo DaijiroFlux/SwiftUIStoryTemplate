@@ -1,6 +1,10 @@
 import SwiftUI
 
+
+
 struct Chapter1View: View {
+   
+    
     @State private var userAnswer: String = ""
 
     let images = ["image1", "image2", "image3"] 
@@ -28,6 +32,8 @@ struct Chapter1View: View {
             
             Text("Jonthan and his wife lived a very humble life on the Eastside of Detroit.  They were both hardworking citizens of the city and were both heavily involved in church and their faith with Christ has always been strong and true. He was the lead singer in his Church where he served the Lord with his gifts. Jonathan; like other singers from their church, dreamed of being famous with his gift, and one day wanted to make the big leap of faith to persue that dream. After months of long discussions with his wife, they decided that they were moving to LA so Jonathan can persue his dream. Jonathtan and his wife sold everything they had of value to financially help them with the move to California.It was late spring of 1994 when they made the move. After moving into their humble apartment in LA, they immediately began working multiple jobs, consisting of late night shifts, double shifts, and at times even working up to 18 hours a day.")
                 .padding()
+            
+           
                 
 
 //            TextField("Enter your answer", text: $userAnswer)
@@ -44,7 +50,10 @@ struct Chapter1View: View {
             .padding()
         }
     }
-}
+        
+            
+        }
+
 
 #Preview {
     Chapter1View()
