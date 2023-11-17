@@ -1,7 +1,14 @@
 import AVFoundation
 import SwiftUI
 
+
+
 struct Chapter1View: View {
+
+   
+    
+    @State private var userAnswer: String = ""
+
     @State private var userCan: String = ""
     @State private var activeImageIndex = 0
     @State private var isSpeaking = false // Track speech status
@@ -12,6 +19,7 @@ struct Chapter1View: View {
     let imageSwitchTimeInterval = 5.0
     // Declare speechSynthesizer here
     let speechSynthesizer = AVSpeechSynthesizer()
+
 
     var body: some View {
         ScrollView {
@@ -28,10 +36,41 @@ struct Chapter1View: View {
                 .padding()
 
             HStack {
+
                 controlButton(action: { startSpeech() }, label: "Start")
                 controlButton(action: { pauseSpeech() }, label: "Pause")
                 controlButton(action: { stopSpeech() }, label: "Stop")
                 controlButton(action: { startOverSpeech() }, label: "Start Over")
+
+                Button(action: {
+                    self.startSpeech()
+                }) {
+                    Text("Start")
+                }
+                .padding()
+
+                Button(action: {
+                    self.pauseSpeech()
+                }) {
+                    Text("Pause")
+                }
+                .padding()
+
+                Button(action: {
+                    self.stopSpeech()
+                }) {
+                    Text("Stop")
+                }
+                .padding()
+
+
+                Button(action: {
+                    self.startOverSpeech()
+                }) {
+                    Text("Start Over")
+                }
+                .padding()
+
             }
 
             NavigationLink(destination: Chapter2View(personName: userCan)) {
@@ -58,6 +97,7 @@ struct Chapter1View: View {
         }
         .padding()
     }
+
 
     private func startSpeech() {
         if !isSpeaking {
