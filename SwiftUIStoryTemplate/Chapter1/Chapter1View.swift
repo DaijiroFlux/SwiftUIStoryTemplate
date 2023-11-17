@@ -1,5 +1,5 @@
-import SwiftUI
 import AVFoundation
+import SwiftUI
 
 
 
@@ -12,9 +12,13 @@ struct Chapter1View: View {
     @State private var userCan: String = ""
     @State private var activeImageIndex = 0
     @State private var isSpeaking = false // Track speech status
+    @State private var speechText = """
+        Jonathan and his wife lived a very humble life on the Eastside of Detroit. They were both hardworking citizens of the city and were heavily involved in church and their faith with Christ has always been strong and true. He was the lead singer in his Church where he served the Lord with his gifts. Jonathan, like other singers from their church, dreamed of being famous with his gift and one day wanted to make the big leap of faith to pursue that dream. After months of long discussions with his wife, they decided to move to LA so Jonathan could pursue his dream. Jonathan and his wife sold everything they had of value to financially help them with the move to California. It was late spring of 1994 when they made the move. After moving into their humble apartment in LA, they immediately began working multiple jobs, consisting of late-night shifts, double shifts, and at times even working up to 18 hours a day.
+    """
     let images = ["Chap1image1", "Chap1image2", "Chap1image3", "Chap1image4"]
     let imageSwitchTimeInterval = 5.0
-    var speechSynthesizer = AVSpeechSynthesizer()
+    // Declare speechSynthesizer here
+    let speechSynthesizer = AVSpeechSynthesizer()
 
 
     var body: some View {
@@ -28,10 +32,16 @@ struct Chapter1View: View {
                     self.activeImageIndex = (self.activeImageIndex + 1) % self.images.count
                 }
 
-            Text("Jonathan and his wife lived a very humble life on the Eastside of Detroit. They were both hardworking citizens of the city and were heavily involved in church and their faith with Christ has always been strong and true. He was the lead singer in his Church where he served the Lord with his gifts. Jonathan, like other singers from their church, dreamed of being famous with his gift and one day wanted to make the big leap of faith to pursue that dream. After months of long discussions with his wife, they decided to move to LA so Jonathan could pursue his dream. Jonathan and his wife sold everything they had of value to financially help them with the move to California. It was late spring of 1994 when they made the move. After moving into their humble apartment in LA, they immediately began working multiple jobs, consisting of late-night shifts, double shifts, and at times even working up to 18 hours a day.")
+            Text(speechText)
                 .padding()
 
             HStack {
+
+                controlButton(action: { startSpeech() }, label: "Start")
+                controlButton(action: { pauseSpeech() }, label: "Pause")
+                controlButton(action: { stopSpeech() }, label: "Stop")
+                controlButton(action: { startOverSpeech() }, label: "Start Over")
+
                 Button(action: {
                     self.startSpeech()
                 }) {
@@ -60,6 +70,7 @@ struct Chapter1View: View {
                     Text("Start Over")
                 }
                 .padding()
+
             }
 
             NavigationLink(destination: Chapter2View(personName: userCan)) {
@@ -71,31 +82,48 @@ struct Chapter1View: View {
             }
             .padding()
         }
+        // Pass isSpeaking as a binding
+        .onAppear {
+            // No need for a @Binding property here
+            // You can directly use isSpeaking
+        }
+    }
+
+    private func controlButton(action: @escaping () -> Void, label: String) -> some View {
+        Button(action: {
+            action()
+        }) {
+            Text(label)
+        }
+        .padding()
     }
 
 
     private func startSpeech() {
         if !isSpeaking {
-            let speechText = "Jonathan and his wife lived a very humble life on the Eastside of Detroit. They were both hardworking citizens of the city and were heavily involved in church and their faith with Christ has always been strong and true. He was the lead singer in his Church where he served the Lord with his gifts. Jonathan, like other singers from their church, dreamed of being famous with his gift and one day wanted to make the big leap of faith to pursue that dream. After months of long discussions with his wife, they decided to move to LA so Jonathan could pursue his dream. Jonathan and his wife sold everything they had of value to financially help them with the move to California. It was late spring of 1994 when they made the move. After moving into their humble apartment in LA, they immediately began working multiple jobs, consisting of late-night shifts, double shifts, and at times even working up to 18 hours a day."
             speakText(speechText)
+            isSpeaking = true
         }
     }
 
     private func pauseSpeech() {
         if isSpeaking {
             speechSynthesizer.pauseSpeaking(at: .immediate)
+            isSpeaking = false
         }
     }
 
     private func stopSpeech() {
         if isSpeaking {
             speechSynthesizer.stopSpeaking(at: .immediate)
+            isSpeaking = false
         }
     }
 
     private func startOverSpeech() {
         if isSpeaking {
             speechSynthesizer.stopSpeaking(at: .word)
+            isSpeaking = false
         }
     }
 
@@ -106,13 +134,12 @@ struct Chapter1View: View {
         speechUtterance.volume = 1.0
 
         speechSynthesizer.speak(speechUtterance)
-        isSpeaking = true
     }
 }
 
 struct ImageView: View {
     var imageName: String
-    
+
     var body: some View {
         Image(imageName)
             .resizable()
@@ -121,7 +148,6 @@ struct ImageView: View {
             .padding()
     }
 }
-
 
 #Preview {
     Chapter1View()
