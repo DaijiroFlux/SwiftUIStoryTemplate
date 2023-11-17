@@ -1,24 +1,17 @@
 import AVFoundation
 import SwiftUI
 
-
-
 struct Chapter1View: View {
-
-   
-    
-    @State private var userAnswer: String = ""
 
     @State private var userCan: String = ""
     @State private var activeImageIndex = 0
-    @State private var isSpeaking = false // Track speech status
+    @State private var isSpeaking = false
     @State private var speechText = """
     Jonathan and his wife lived a very humble life on the Eastside of Detroit. They were both hardworking citizens and were heavily involved with their church, and their faith with Christ have always been true. He's been the lead singer in their church where he serves the Lord with his gift and talent. Jonathan, like other singers from their church, dreamed of becoming famous with singing, and one day wanted to make the big leap of faith to pursue that dream. After months of long discussions with his wife, they decided to move to L.A. so that he can pursue his dream. Jonathan and his wife sold everything they had of value to financially help them with the move. It was late spring of 1994 when they lefT Detroit. After moving into their humble apartment in South Central L.A., they immediately began working multiple jobs, consisting of late-night shifts, double shifts, some days even working up to 18 hours.
     """
     
     let images = ["Chap1image1", "Chap1image2", "Chap1image3", "Chap1image4"]
     let imageSwitchTimeInterval = 5.0
-    // Declare speechSynthesizer here
     let speechSynthesizer = AVSpeechSynthesizer()
 
 
